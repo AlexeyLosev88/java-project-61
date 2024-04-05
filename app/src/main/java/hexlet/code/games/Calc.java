@@ -32,7 +32,8 @@ public class Calc {
                 System.out.println("Correct!");
                 Engine.valueCorrectAnswer = Engine.valueCorrectAnswer + 1;
             } else {
-                System.out.println("'" + Engine.answer + "' is wrong answer ;(. Correct answer was '" + solution + "'");
+                System.out.println("'" + Engine.answer + "' is wrong answer ;(. Correct answer was '"
+                        + solution + "'.");
                 break;
             }
         }
