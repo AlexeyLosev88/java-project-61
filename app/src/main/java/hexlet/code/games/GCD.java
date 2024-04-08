@@ -1,7 +1,5 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
-
 import java.util.Random;
 
 public class GCD {
@@ -12,11 +10,9 @@ public class GCD {
 
         while (Engine.valueCorrectAnswer != 3) {
             int solution = 1;
-            int randomNumber1 = 0;
-            int randomNumber2 = 0;
             Random random = new Random();
-            randomNumber1 = random.nextInt(100);
-            randomNumber2 = random.nextInt(100);
+            int randomNumber1 = random.nextInt(100);
+            int randomNumber2 = random.nextInt(100);
             System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
 
             Engine.userAnswer();

@@ -9,12 +9,10 @@ public class Calc {
 
         while (Engine.valueCorrectAnswer != 3) {
             int solution = 0;
-            int randomNumber1 = 0;
-            int randomNumber2 = 0;
             char randomSymbol = 0;
             Random random = new Random();
-            randomNumber1 = random.nextInt(10);
-            randomNumber2 = random.nextInt(10);
+            int randomNumber1 = random.nextInt(10);
+            int randomNumber2 = random.nextInt(10);
             randomSymbol = (random.nextInt(2) == 0) ? '+'
                     : (random.nextInt(2) == 0) ? '-' : '*';
             System.out.println("Question: " + randomNumber1 + " " + randomSymbol + " " + randomNumber2);
