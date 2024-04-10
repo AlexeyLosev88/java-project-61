@@ -11,7 +11,7 @@ public class Even {
 
         while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
             Random random = new Random();
-            int maxValueRandomNumber = 100000;
+            final int maxValueRandomNumber = 100000;
             int randomNumber = random.nextInt(maxValueRandomNumber);
             System.out.println("Question: " + randomNumber);
 

@@ -14,8 +14,8 @@ public class Engine {
         return valueCorrectAnswer;
     }
 
-    public static void setValueCorrectAnswer(int сorrectAnswer) {
-        valueCorrectAnswer = сorrectAnswer;
+    public static void setValueCorrectAnswer(int sumCorrectAnswer) {
+        valueCorrectAnswer = sumCorrectAnswer;
     }
 
     private static String answer;
