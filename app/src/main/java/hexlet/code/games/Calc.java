@@ -7,12 +7,16 @@ public class Calc {
         Engine.welcome();
         System.out.println("What is the result of the expression?");
 
-        while (Engine.valueCorrectAnswer != 3) {
-            int solution = 0;
-            char randomSymbol = 0;
+        Engine engine = new Engine();
+
+        while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
+            int solution;
+            char randomSymbol;
             Random random = new Random();
-            int randomNumber1 = random.nextInt(10);
-            int randomNumber2 = random.nextInt(10);
+            int maxValueRandomNumber1 = 10;
+            int maxValueRandomNumber2 = 10;
+            int randomNumber1 = random.nextInt(maxValueRandomNumber1);
+            int randomNumber2 = random.nextInt(maxValueRandomNumber2);
             randomSymbol = (random.nextInt(2) == 0) ? '+'
                     : (random.nextInt(2) == 0) ? '-' : '*';
             System.out.println("Question: " + randomNumber1 + " " + randomSymbol + " " + randomNumber2);
@@ -26,11 +30,11 @@ public class Calc {
 
             Engine.userAnswer();
 
-            if (Engine.answer.equals(Integer.toString(solution))) {
+            if (Engine.getAnswer().equals(Integer.toString(solution))) {
                 System.out.println("Correct!");
-                Engine.valueCorrectAnswer = Engine.valueCorrectAnswer + 1;
+                engine.setValueCorrectAnswer(engine.getValueCorrectAnswer() + 1);
             } else {
-                System.out.println("'" + Engine.answer + "' is wrong answer ;(. Correct answer was '"
+                System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was '"
                         + solution + "'.");
                 break;
             }

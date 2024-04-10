@@ -9,6 +9,12 @@ import hexlet.code.games.Prime;
 public class App {
 
     public static void main(String[] args) {
+        int gameNumberEven = 2;
+        int gameNumberCalc = 3;
+        int gameNumberGCD = 4;
+        int gameNumberProgression = 5;
+        int gameNumberPrime = 6;
+
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -24,19 +30,19 @@ public class App {
             System.out.println("Your choice: " + choice + "\n");
             System.out.println("Welcome to the Brain Games!");
             Cli.userName();
-        } else if (choice == 2) {
+        } else if (choice == gameNumberEven) {
             System.out.println("Your choice: " + choice);
             Even.startEvenGame();
-        } else if (choice == 3) {
+        } else if (choice == gameNumberCalc) {
             System.out.println("Your choice: " + choice);
             Calc.startCalcGame();
-        } else if (choice == 4) {
+        } else if (choice == gameNumberGCD) {
             System.out.println("Your choice: " + choice);
             GCD.startGcdGame();
-        } else if (choice == 5) {
+        } else if (choice == gameNumberProgression) {
             System.out.println("Your choice: " + choice);
             Progression.startProgressionGame();
-        } else if (choice == 6) {
+        } else if (choice == gameNumberPrime) {
             System.out.println("Your choice: " + choice);
             Prime.startPrimeGame();
         } else if (choice == 0) {

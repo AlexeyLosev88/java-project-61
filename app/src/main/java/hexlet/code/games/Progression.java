@@ -8,14 +8,21 @@ public class Progression {
         Engine.welcome();
         System.out.println("What number is missing in the progression?");
 
-        while (Engine.valueCorrectAnswer != 3) {
-            Random random = new Random();
-            int progressionStep = random.nextInt(1, 4);
-            int quantityElement = random.nextInt(4, 10);
-            int nextNumber = random.nextInt(100);
-            String progression = Integer.toString(nextNumber);
+        Engine engine = new Engine();
 
-            while (quantityElement < 13) {
+        while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
+            Random random = new Random();
+            int minValueProgressionStep = 1;
+            int maxValueProgressionStep = 4;
+            int progressionStep = random.nextInt(minValueProgressionStep, maxValueProgressionStep);
+            int minValueQuantityElement = 4;
+            int maxValueQuantityElement = 10;
+            int quantityElement = random.nextInt(minValueQuantityElement, maxValueQuantityElement);
+            int maxValueNextNumber = 100;
+            int nextNumber = random.nextInt(maxValueNextNumber);
+            String progression = Integer.toString(nextNumber);
+            int correctionQuantityElementForCycle = 13;
+            while (quantityElement < correctionQuantityElementForCycle) {
                 nextNumber = nextNumber + progressionStep;
                 progression = progression + " " + nextNumber;
                 quantityElement = quantityElement + 1;
@@ -30,16 +37,15 @@ public class Progression {
 
             Engine.userAnswer();
 
-            if (Engine.answer.equals(desiredNumber)) {
+            if (Engine.getAnswer().equals(desiredNumber)) {
                 System.out.println("Correct!");
-                Engine.valueCorrectAnswer = Engine.valueCorrectAnswer + 1;
+                engine.setValueCorrectAnswer(engine.getValueCorrectAnswer() + 1);
             } else {
-                System.out.println("'" + Engine.answer + "' is wrong answer ;(. Correct answer was '"
+                System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was '"
                         + desiredNumber + "'.");
                 break;
             }
         }
         Engine.victory();
-
     }
 }

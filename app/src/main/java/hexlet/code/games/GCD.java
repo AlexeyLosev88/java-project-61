@@ -8,11 +8,15 @@ public class GCD {
         Engine.welcome();
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        while (Engine.valueCorrectAnswer != 3) {
+        Engine engine = new Engine();
+
+        while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
             int solution = 1;
             Random random = new Random();
-            int randomNumber1 = random.nextInt(100);
-            int randomNumber2 = random.nextInt(100);
+            int maxValueRandomNumber1 = 100;
+            int maxValueRandomNumber2 = 100;
+            int randomNumber1 = random.nextInt(maxValueRandomNumber1);
+            int randomNumber2 = random.nextInt(maxValueRandomNumber2);
             System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
 
             Engine.userAnswer();
@@ -23,16 +27,15 @@ public class GCD {
                 }
             }
 
-            if (Engine.answer.equals(Integer.toString(solution))) {
+            if (Engine.getAnswer().equals(Integer.toString(solution))) {
                 System.out.println("Correct!");
-                Engine.valueCorrectAnswer = Engine.valueCorrectAnswer + 1;
+                engine.setValueCorrectAnswer(engine.getValueCorrectAnswer() + 1);
             } else {
-                System.out.println("'" + Engine.answer + "' is wrong answer ;(. Correct answer was '"
+                System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was '"
                         + solution + "'.");
                 break;
             }
         }
         Engine.victory();
-
     }
 }

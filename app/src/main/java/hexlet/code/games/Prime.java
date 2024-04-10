@@ -8,9 +8,12 @@ public class Prime {
         Engine.welcome();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        while (Engine.valueCorrectAnswer != 3) {
+        Engine engine = new Engine();
+
+        while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
             Random random = new Random();
-            int randomNumber = random.nextInt(1000);
+            int maxNumber = 1000;
+            int randomNumber = random.nextInt(maxNumber);
             System.out.println("Question: " + randomNumber);
             boolean isPrime = true;
             if (randomNumber < 2) {
@@ -25,21 +28,20 @@ public class Prime {
 
             Engine.userAnswer();
 
-            if ((Engine.answer.equals("yes") && (isPrime))
-                    || ((Engine.answer.equals("no") && (!isPrime)))) {
+            if ((Engine.getAnswer().equals("yes") && (isPrime))
+                    || ((Engine.getAnswer().equals("no") && (!isPrime)))) {
                 System.out.println("Correct!");
-                Engine.valueCorrectAnswer = Engine.valueCorrectAnswer + 1;
+                engine.setValueCorrectAnswer(engine.getValueCorrectAnswer() + 1); // = ;
             } else {
                 if (!isPrime) {
-                    System.out.println("'" + Engine.answer + "' is wrong answer ;(. Correct answer was 'no'.");
+                    System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was 'no'.");
                 } else {
-                    System.out.println("'" + Engine.answer + "' is wrong answer ;(. Correct answer was 'yes'.");
+                    System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was 'yes'.");
                 }
                 break;
             }
 
         }
-
         Engine.victory();
     }
 }
