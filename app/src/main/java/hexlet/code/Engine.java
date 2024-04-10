@@ -3,19 +3,19 @@ import java.util.Scanner;
 
 public class Engine {
     private static String name;
-    private static final int answersToWin = 3;
+    private static final int ANSWERSWIN = 3;
     public static int getAnswersToWin() {
-        return answersToWin;
+        return ANSWERSWIN;
     }
 
     private static int valueCorrectAnswer = 0;
 
-    public int getValueCorrectAnswer() {
+    public static int getValueCorrectAnswer() {
         return valueCorrectAnswer;
     }
 
-    public void setValueCorrectAnswer(int CorrectAnswer) {
-        valueCorrectAnswer = CorrectAnswer;
+    public static void setValueCorrectAnswer(int сorrectAnswer) {
+        valueCorrectAnswer = сorrectAnswer;
     }
 
     private static String answer;
@@ -39,7 +39,7 @@ public class Engine {
     }
 
     public static void victory() {
-        if (valueCorrectAnswer == answersToWin) {
+        if (valueCorrectAnswer == ANSWERSWIN) {
             System.out.println("Congratulations, " + name + "!");
         } else {
             System.out.println("Let's try again, " + name + "!");

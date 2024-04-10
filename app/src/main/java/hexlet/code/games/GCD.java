@@ -13,8 +13,8 @@ public class GCD {
         while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
             int solution = 1;
             Random random = new Random();
-            int maxValueRandomNumber1 = 100;
-            int maxValueRandomNumber2 = 100;
+            final int maxValueRandomNumber1 = 100;
+            final int maxValueRandomNumber2 = 100;
             int randomNumber1 = random.nextInt(maxValueRandomNumber1);
             int randomNumber2 = random.nextInt(maxValueRandomNumber2);
             System.out.println("Question: " + randomNumber1 + " " + randomNumber2);

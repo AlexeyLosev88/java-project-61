@@ -13,8 +13,8 @@ public class Calc {
             int solution;
             char randomSymbol;
             Random random = new Random();
-            int maxValueRandomNumber1 = 10;
-            int maxValueRandomNumber2 = 10;
+            final int maxValueRandomNumber1 = 10;
+            final int maxValueRandomNumber2 = 10;
             int randomNumber1 = random.nextInt(maxValueRandomNumber1);
             int randomNumber2 = random.nextInt(maxValueRandomNumber2);
             randomSymbol = (random.nextInt(2) == 0) ? '+'

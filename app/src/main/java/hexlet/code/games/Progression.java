@@ -12,16 +12,16 @@ public class Progression {
 
         while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
             Random random = new Random();
-            int minValueProgressionStep = 1;
-            int maxValueProgressionStep = 4;
+            final int minValueProgressionStep = 1;
+            final int maxValueProgressionStep = 4;
             int progressionStep = random.nextInt(minValueProgressionStep, maxValueProgressionStep);
-            int minValueQuantityElement = 4;
-            int maxValueQuantityElement = 10;
+            final int minValueQuantityElement = 4;
+            final int maxValueQuantityElement = 10;
             int quantityElement = random.nextInt(minValueQuantityElement, maxValueQuantityElement);
-            int maxValueNextNumber = 100;
+            final int maxValueNextNumber = 100;
             int nextNumber = random.nextInt(maxValueNextNumber);
             String progression = Integer.toString(nextNumber);
-            int correctionQuantityElementForCycle = 13;
+            final int correctionQuantityElementForCycle = 13;
             while (quantityElement < correctionQuantityElementForCycle) {
                 nextNumber = nextNumber + progressionStep;
                 progression = progression + " " + nextNumber;

@@ -12,7 +12,7 @@ public class Prime {
 
         while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
             Random random = new Random();
-            int maxNumber = 1000;
+            final int maxNumber = 1000;
             int randomNumber = random.nextInt(maxNumber);
             System.out.println("Question: " + randomNumber);
             boolean isPrime = true;
