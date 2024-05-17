@@ -1,35 +1,26 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class Even {
+    private static final int MAX_RANDOM_NUMBER = 100000;
+
     public static void startEvenGame() {
         Engine.welcome();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
-        Engine engine = new Engine();
-
-        while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
-            Random random = new Random();
-            final int maxValueRandomNumber = 100000;
-            int randomNumber = random.nextInt(maxValueRandomNumber);
-            System.out.println("Question: " + randomNumber);
-
-            Engine.userAnswer();
-
-            if ((Engine.getAnswer().equals("yes") && randomNumber % 2 == 0)
-                    || (Engine.getAnswer().equals("no") && randomNumber % 2 != 0)) {
-                System.out.println("Correct!");
-                engine.setValueCorrectAnswer(engine.getValueCorrectAnswer() + 1);
-            } else {
-                if (randomNumber % 2 == 0) {
-                    System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was 'yes'.");
-                } else {
-                    System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was 'no'.");
-                }
-                break;
-            }
+        while (Engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
+            int randomNumber = Utils.getRandomInt(MAX_RANDOM_NUMBER);
+            String question = "Question: " + randomNumber;
+            String correctAnswer = solution(randomNumber);
+            Engine.logicGame(question, correctAnswer);
         }
-        Engine.victory();
+    }
+
+    public static String solution(int number) {
+        if (number % 2 == 0) {
+            return "yes";
+        } else {
+            return "no";
+        }
     }
 }

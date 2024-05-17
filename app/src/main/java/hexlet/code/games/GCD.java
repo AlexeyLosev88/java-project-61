@@ -1,41 +1,29 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class GCD {
+    private static final int MAX_RANDOM_NUMBER1 = 100;
+    private static final int MAX_RANDOM_NUMBER2 = 100;
 
     public static void startGcdGame() {
         Engine.welcome();
         System.out.println("Find the greatest common divisor of given numbers.");
-
-        Engine engine = new Engine();
-
-        while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
-            int solution = 1;
-            Random random = new Random();
-            final int maxValueRandomNumber1 = 100;
-            final int maxValueRandomNumber2 = 100;
-            int randomNumber1 = random.nextInt(maxValueRandomNumber1);
-            int randomNumber2 = random.nextInt(maxValueRandomNumber2);
-            System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
-
-            Engine.userAnswer();
-
-            for (int i = 1; i <= randomNumber1 && i <= randomNumber2; i++) {
-                if (randomNumber1 % i == 0 && randomNumber2 % i == 0) {
-                    solution = i;
-                }
-            }
-
-            if (Engine.getAnswer().equals(Integer.toString(solution))) {
-                System.out.println("Correct!");
-                engine.setValueCorrectAnswer(engine.getValueCorrectAnswer() + 1);
-            } else {
-                System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was '"
-                        + solution + "'.");
-                break;
-            }
+        while (Engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
+            int randomNumber1 = Utils.getRandomInt(MAX_RANDOM_NUMBER1);
+            int randomNumber2 = Utils.getRandomInt(MAX_RANDOM_NUMBER2);
+            String question = "Question: " + randomNumber1 + " " + randomNumber2;
+            String correctAnswer = Integer.toString(solution(randomNumber1, randomNumber2));
+            Engine.logicGame(question, correctAnswer);
         }
-        Engine.victory();
+    }
+
+    public static int solution(int number1, int number2) {
+        int result = 1;
+        for (int i = 1; i <= number1 && i <= number2; i++) {
+            if (number1 % i == 0 && number2 % i == 0) {
+                result = i;
+            }
+        } return result;
     }
 }

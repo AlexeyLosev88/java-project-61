@@ -1,51 +1,43 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class Progression {
+    private static final int MIN_PROGRESSION_STEP = 1;
+    private static final int MAX_PROGRESSION_STEP = 4;
+    private static final int MIN_QUANTITY_ELEMENT = 4;
+    private static final int MAX_QUANTITY_ELEMENT = 10;
+    private static final int MAX_VALUE_NEXT_NUMBER = 100;
+    private static final int CORRECTION_QUANTITY_ELEMENT_FOR_CYCLE = 13;
 
     public static void startProgressionGame() {
         Engine.welcome();
         System.out.println("What number is missing in the progression?");
-
-        Engine engine = new Engine();
-
-        while (engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
-            Random random = new Random();
-            final int minValueProgressionStep = 1;
-            final int maxValueProgressionStep = 4;
-            int progressionStep = random.nextInt(minValueProgressionStep, maxValueProgressionStep);
-            final int minValueQuantityElement = 4;
-            final int maxValueQuantityElement = 10;
-            int quantityElement = random.nextInt(minValueQuantityElement, maxValueQuantityElement);
-            final int maxValueNextNumber = 100;
-            int nextNumber = random.nextInt(maxValueNextNumber);
+        while (Engine.getValueCorrectAnswer() != Engine.getAnswersToWin()) {
+            int progressionStep = Utils.getRandomInt(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
+            int quantityElement = Utils.getRandomInt(MIN_QUANTITY_ELEMENT, MAX_QUANTITY_ELEMENT);
+            int nextNumber = Utils.getRandomInt(MAX_VALUE_NEXT_NUMBER);
             String progression = Integer.toString(nextNumber);
-            final int correctionQuantityElementForCycle = 13;
-            while (quantityElement < correctionQuantityElementForCycle) {
+            while (quantityElement < CORRECTION_QUANTITY_ELEMENT_FOR_CYCLE) {
                 nextNumber = nextNumber + progressionStep;
                 progression = progression + " " + nextNumber;
                 quantityElement = quantityElement + 1;
             }
-
             String[] massive = progression.split(" ");
-            int massiveIndex = random.nextInt(massive.length);
-            String desiredNumber = massive[massiveIndex];
+            int massiveIndex = Utils.getRandomInt(massive.length);
+
+            String correctAnswer = Integer.toString(solution(Integer.parseInt(massive[massiveIndex])));
+
             massive[massiveIndex] = "..";
             String hiddenProgression = String.join(" ", massive);
-            System.out.println("Question: " + hiddenProgression);
 
-            Engine.userAnswer();
+            String question = "Question: " + hiddenProgression;
 
-            if (Engine.getAnswer().equals(desiredNumber)) {
-                System.out.println("Correct!");
-                engine.setValueCorrectAnswer(engine.getValueCorrectAnswer() + 1);
-            } else {
-                System.out.println("'" + Engine.getAnswer() + "' is wrong answer ;(. Correct answer was '"
-                        + desiredNumber + "'.");
-                break;
-            }
+            Engine.logicGame(question, correctAnswer);
         }
-        Engine.victory();
+    }
+
+    public static int solution(int hiddenNumber) {
+        return hiddenNumber;
     }
 }
