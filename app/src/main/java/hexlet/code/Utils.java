@@ -10,19 +10,4 @@ public class Utils {
         Random random = new Random();
         return random.nextInt(number1, number2);
     }
-
-    public static String[] getRandomProgression(int minProgressionStep, int maxProgressionStep,
-                                           int minQuantityElement, int maxQuantityElement,
-                                           int maxValueNextNumber, int correctionQuantityElementForCycle) {
-        int progressionStep = getRandomInt(minProgressionStep, maxProgressionStep);
-        int quantityElement = getRandomInt(minQuantityElement, maxQuantityElement);
-        int nextNumber = getRandomInt(maxValueNextNumber);
-        String progression = Integer.toString(nextNumber);
-        while (quantityElement < correctionQuantityElementForCycle) {
-            nextNumber = nextNumber + progressionStep;
-            progression = progression + " " + nextNumber;
-            quantityElement = quantityElement + 1;
-        }
-        return progression.split(" ");
-    }
 }

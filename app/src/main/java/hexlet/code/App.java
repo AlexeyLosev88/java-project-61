@@ -32,19 +32,19 @@ public class App {
             Cli.userName();
         } else if (choice == gameNumberEven) {
             System.out.println("Your choice: " + choice);
-            Even.startEvenGame();
+            Even.startGame();
         } else if (choice == gameNumberCalc) {
             System.out.println("Your choice: " + choice);
-            Calc.startCalcGame();
+            Calc.startGame();
         } else if (choice == gameNumberGCD) {
             System.out.println("Your choice: " + choice);
-            GCD.startGcdGame();
+            GCD.startGame();
         } else if (choice == gameNumberProgression) {
             System.out.println("Your choice: " + choice);
-            Progression.startProgressionGame();
+            Progression.startGame();
         } else if (choice == gameNumberPrime) {
             System.out.println("Your choice: " + choice);
-            Prime.startPrimeGame();
+            Prime.startGame();
         } else if (choice == 0) {
             System.out.println("Exit");
         } else {

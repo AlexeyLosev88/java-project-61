@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Engine {
     private static String name;
     public static final int QUANTITY_ANSWERS_TO_WIN = 3;
-    private static int valueCorrectAnswer = 0;
 
     public static void welcome() {
         System.out.println("Welcome to the Brain Games!");
@@ -14,7 +13,10 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
     }
 
-    public static void logicGame(String[] question, String[] correctAnswer) {
+    public static void start(String[] question, String[] correctAnswer, String rules) {
+        int valueCorrectAnswer = 0;
+        Engine.welcome();
+        System.out.println(rules);
         for (int i = 0; i < QUANTITY_ANSWERS_TO_WIN; i++) {
             System.out.println("Question: " + question[i]);
             Scanner scanner = new Scanner(System.in);

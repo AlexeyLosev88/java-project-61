@@ -5,9 +5,10 @@ import hexlet.code.Utils;
 public class Prime {
     private static final int MAX_RANDOM_NUMBER = 1000;
 
-    public static void startPrimeGame() {
-        Engine.welcome();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    public static void startGame() {
+        //Engine.welcome();
+        // System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[] question = new String[Engine.QUANTITY_ANSWERS_TO_WIN];
         String[] correctAnswer = new String[Engine.QUANTITY_ANSWERS_TO_WIN];
         for (int i = 0; i < Engine.QUANTITY_ANSWERS_TO_WIN; i++) {
@@ -19,7 +20,7 @@ public class Prime {
                 correctAnswer[i] = "no";
             }
         }
-        Engine.logicGame(question, correctAnswer);
+        Engine.start(question, correctAnswer, rules);
     }
 
     public static boolean isPrime(int number) {
