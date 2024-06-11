@@ -13,22 +13,22 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
     }
 
-    public static void start(String[] question, String[] correctAnswer, String rules) {
+    public static void start(String[][] questionEndAnswer, String rules) {
         int valueCorrectAnswer = 0;
         Engine.welcome();
         System.out.println(rules);
         for (int i = 0; i < QUANTITY_ANSWERS_TO_WIN; i++) {
-            System.out.println("Question: " + question[i]);
+            System.out.println("Question: " + questionEndAnswer[i][0]);
             Scanner scanner = new Scanner(System.in);
             String answer = scanner.next();
             System.out.println("Your answer: " + answer);
 
-            if (answer.equals(correctAnswer[i])) {
+            if (answer.equals(questionEndAnswer[i][1])) {
                 System.out.println("Correct!");
                 valueCorrectAnswer = valueCorrectAnswer + 1;
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer[i]
-                        + "'.");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + questionEndAnswer[i][1]
+                            + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 System.exit(0);
             }

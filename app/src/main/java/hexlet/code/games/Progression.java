@@ -12,8 +12,7 @@ public class Progression {
 
     public static void startGame() {
         String rules = "What number is missing in the progression?";
-        String[] question = new String[Engine.QUANTITY_ANSWERS_TO_WIN];
-        String[] correctAnswer = new String[Engine.QUANTITY_ANSWERS_TO_WIN];
+        String[][] questionEndAnswer = new String[Engine.QUANTITY_ANSWERS_TO_WIN][2];
         for (int i = 0; i < Engine.QUANTITY_ANSWERS_TO_WIN; i++) {
             int progressionStep = Utils.getRandomInt(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
             int quantityElement = Utils.getRandomInt(MIN_QUANTITY_ELEMENT, MAX_QUANTITY_ELEMENT);
@@ -21,11 +20,11 @@ public class Progression {
             String[] randomProgression = getRandomProgression(progressionStep, quantityElement,
                     nextNumber, CORRECTION_QUANTITY_ELEMENT_FOR_CYCLE);
             int progressionIndex = Utils.getRandomInt(randomProgression.length);
-            correctAnswer[i] = Integer.toString(Integer.parseInt(randomProgression[progressionIndex]));
+            questionEndAnswer[i][1]  = Integer.toString(Integer.parseInt(randomProgression[progressionIndex])); // ответ
             randomProgression[progressionIndex] = "..";
-            question[i] = String.join(" ", randomProgression);
+            questionEndAnswer[i][0]  = String.join(" ", randomProgression); // вопрос
         }
-        Engine.start(question, correctAnswer, rules);
+        Engine.start(questionEndAnswer, rules);
     }
 
     public static String[] getRandomProgression(int progressionStep, int quantityElement,

@@ -6,21 +6,18 @@ public class Prime {
     private static final int MAX_RANDOM_NUMBER = 1000;
 
     public static void startGame() {
-        //Engine.welcome();
-        // System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] question = new String[Engine.QUANTITY_ANSWERS_TO_WIN];
-        String[] correctAnswer = new String[Engine.QUANTITY_ANSWERS_TO_WIN];
+        String[][] questionEndAnswer = new String[Engine.QUANTITY_ANSWERS_TO_WIN][2];
         for (int i = 0; i < Engine.QUANTITY_ANSWERS_TO_WIN; i++) {
             int randomNumber = Utils.getRandomInt(MAX_RANDOM_NUMBER);
-            question[i] = String.valueOf(randomNumber);
-            if (isPrime(randomNumber)) {
-                correctAnswer[i] = "yes";
+            questionEndAnswer[i][0]  = String.valueOf(randomNumber); // вопрос
+            if (isPrime(randomNumber)) { // ответ
+                questionEndAnswer[i][1]  = "yes";
             } else {
-                correctAnswer[i] = "no";
+                questionEndAnswer[i][1]  = "no";
             }
         }
-        Engine.start(question, correctAnswer, rules);
+        Engine.start(questionEndAnswer, rules);
     }
 
     public static boolean isPrime(int number) {
